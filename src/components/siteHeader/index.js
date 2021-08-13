@@ -1,63 +1,68 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../globals/fontawesome";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./siteHeader.css";
+import { NavDropdown } from 'react-bootstrap';
+
 
 const SiteHeader = () => {
   return (
-    <nav className="navbar  navbar-light fixed-top  bg-dark ">
+    <nav variant="pills" activeKey="1" className="navbar  navbar-ligFht fixed-top  bg-dark ">
       <nav className="navbar-brand text-white">
         <Link className=" text-white" to="/">
           TMDB Client
         </Link>
       </nav>
-      <FontAwesomeIcon
-        className="navbar-text text-light"
-        icon={["fas", "video"]}
-        size="3x"
-      />
-      <span className="navbar-text text-light">
-        For the movie enthusiast !!
-      </span>
-      <FontAwesomeIcon
-        className="navbar-text text-light"
-        icon={["fas", "film"]}
-        size="3x"
-      />
+
       <nav className="navbar navbar-expand ">
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <Link className="nav-link text-white" to="/">
-              Home
+      <NavDropdown title="Log In/Sign Up" id="nav-dropdown">
+          <NavDropdown.Item eventKey="2.1">
+            <Link className="nav-link text-black" to="/">
+              Log In
             </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link text-white" to="/movies/favorites">
-              Favorites
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+            <Link className="nav-link text-black" to="/signup">
+              Sign Up
             </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link text-white" to="/movies/upcoming">
+          </NavDropdown.Item>
+        </NavDropdown>
+        <NavDropdown title="Movies" id="nav-dropdown">
+          <NavDropdown.Item eventKey="2.1">
+            <Link className="nav-link text-black" to="/movies">
+              DiscoverMovies
+            </Link>
+          </NavDropdown.Item>
+          <NavDropdown.Item eventKey="2.2">
+            <Link className="nav-link text-black" to="/movies/upcoming">
               Upcoming
             </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link text-white" to="/movies/watch_list">
-              Watch List
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link text-white" to="/people/popular">
+          </NavDropdown.Item>
+        </NavDropdown>
+        <NavDropdown title="People" id="nav-dropdown">
+          <NavDropdown.Item eventKey="3.1">
+            <Link className="nav-link text-black" to="/people/popular">
               Popular People
             </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link text-white" to="/people/following">
+          </NavDropdown.Item>
+        </NavDropdown>
+        <NavDropdown title="User" id="nav-dropdown">
+          <NavDropdown.Item eventKey="4.1">
+            <Link className="nav-link text-black" to="/movies/favorites">
+              Favorites
+            </Link>
+          </NavDropdown.Item>
+          <NavDropdown.Item eventKey="4.2">
+            <Link className="nav-link text-black" to="/movies/watch_list">
+              Watch List
+            </Link>
+          </NavDropdown.Item>
+          <NavDropdown.Item eventKey="4.3">
+            <Link className="nav-link text-black" to="/people/following">
               Following
             </Link>
-          </li>
-        </ul>
+          </NavDropdown.Item>
+        </NavDropdown>
       </nav>
     </nav>
   );

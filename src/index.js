@@ -11,12 +11,14 @@ import UpcomingMoviePage from "./pages/upcomingMoviesPage";
 import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
 import PeopleContextProvider from "./contexts/peopleContext";
+import AuthContextProvider from "./contexts/authContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import PeoplePage from "./pages/popularPeoplePage";
 import PersonPage from "./pages/personDetailsPage";
 import WatchListPage from "./pages/watchListPage";
 import FollowPage from "./pages/following";
 import LoginPage from "./pages/loginPage";
+import SignUpPage from "./pages/signupPage";
 
 const App = () => {
   return (
@@ -24,26 +26,30 @@ const App = () => {
       <div className="jumbotron">
         <SiteHeader />
         <div className="container-fluid">
-          <MoviesContextProvider>     {/* NEW  */}
-            <GenresContextProvider>
-              <PeopleContextProvider>
-                <Switch>
-                  <Route exact path="/reviews/form" component={AddMovieReviewPage} />
-                  <Route path="/movies/upcoming" component={UpcomingMoviePage} />
-                  <Route path="/movies/watch_list" component={WatchListPage} />
-                  <Route path="/people/popular" component={PeoplePage} />
-                  <Route path="/people/following" component={FollowPage} />
-                  <Route path="/reviews/:id" component={MovieReviewPage} />
-                  <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
-                  <Route path="/people/:id" component={PersonPage} />
-                  <Route path="/movies/:id" component={MoviePage} />
-                  <Route path="/movies" component={HomePage} />
-                  <Route path="/" component={LoginPage} />
-                  <Redirect from="*" to="/" />
-                </Switch>
-              </PeopleContextProvider>
-            </GenresContextProvider>
-          </MoviesContextProvider>     {/* NEW */}
+          <AuthContextProvider>
+            <MoviesContextProvider>     {/* NEW  */}
+              <GenresContextProvider>
+                <PeopleContextProvider>
+                  <Switch>
+                    <Route exact path="/reviews/form" component={AddMovieReviewPage} />
+                    <Route path="/movies/upcoming" component={UpcomingMoviePage} />
+                    <Route path="/movies/watch_list" component={WatchListPage} />
+                    <Route path="/people/popular" component={PeoplePage} />
+                    <Route path="/people/following" component={FollowPage} />
+                    <Route path="/reviews/:id" component={MovieReviewPage} />
+                    <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
+                    <Route path="/people/:id" component={PersonPage} />
+                    <Route path="/movies/:id" component={MoviePage} />
+                    <Route path="/movies" component={HomePage} />
+                    <Route path="/signup" component={SignUpPage} />
+                    <Route path="/" component={LoginPage} />
+                    <Redirect from="*" to="/" />
+                  </Switch>
+                </PeopleContextProvider>
+              </GenresContextProvider>
+            </MoviesContextProvider>     {/* NEW */}
+          </AuthContextProvider>
+
         </div>
       </div>
     </BrowserRouter>
