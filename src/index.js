@@ -16,6 +16,7 @@ import PeoplePage from "./pages/popularPeoplePage";
 import PersonPage from "./pages/personDetailsPage";
 import WatchListPage from "./pages/watchListPage";
 import FollowPage from "./pages/following";
+import LoginPage from "./pages/loginPage";
 
 const App = () => {
   return (
@@ -36,7 +37,8 @@ const App = () => {
                   <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
                   <Route path="/people/:id" component={PersonPage} />
                   <Route path="/movies/:id" component={MoviePage} />
-                  <Route path="/" component={HomePage} />
+                  <Route path="/movies" component={HomePage} />
+                  <Route path="/" component={LoginPage} />
                   <Redirect from="*" to="/" />
                 </Switch>
               </PeopleContextProvider>
