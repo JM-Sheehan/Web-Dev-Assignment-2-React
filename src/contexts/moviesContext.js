@@ -1,5 +1,5 @@
 import React, { useEffect, createContext, useReducer } from "react";
-import { getMovies, getUpcomingMovies } from "../api/tmdb-api";
+import { getMovies, getUpcomingMovies } from "../api/movie-api";
 
 export const MoviesContext = createContext(null);
 
@@ -27,9 +27,9 @@ const reducer = (state, action) => {
         ),
       };
     case "load":
-      return { movies: action.payload.movies, upcoming: [...state.upcoming] };
+      return { movies: action.payload.result, upcoming: [...state.upcoming] };
     case "load-upcoming":
-      return { upcoming: action.payload.movies, movies: [...state.movies] };
+      return { upcoming: action.payload.result, movies: [...state.movies] };
     case "add-review":
       return {
         movies: state.movies.map((m) =>
@@ -68,15 +68,16 @@ const MoviesContextProvider = (props) => {
   };
 
   useEffect(() => {
-    getMovies().then((movies) => {
-      dispatch({ type: "load", payload: { movies } });
+    getMovies().then(result => {
+      console.log(result);
+      dispatch({ type: "load", payload: {result}});
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  },[]);
 
   useEffect(() => {
-    getUpcomingMovies().then((movies) => {
-      dispatch({ type: "load-upcoming", payload: { movies } });
+    getUpcomingMovies().then(result => {
+      console.log(result);
+      dispatch({ type: "load-upcoming", payload: {result}});
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

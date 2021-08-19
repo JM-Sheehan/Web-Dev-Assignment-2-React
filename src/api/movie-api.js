@@ -26,3 +26,23 @@ export const getMovies = () => {
     }
     ).then(res => res.json());
   };
+
+  export const getUpcomingMovies = () => {
+    return fetch(
+      '/api/movies/upcoming',{headers: {
+        'Authorization': window.localStorage.getItem('token')
+     }
+   }
+   ).then(res => res.json());
+ };
+
+  export const getPeople = () => {
+    return fetch(
+       '/api/people',{headers: {
+         'Authorization': window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+  };
+
+ 

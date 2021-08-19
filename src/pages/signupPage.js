@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { AuthContext } from '../contexts/authContext';
 import { Link } from "react-router-dom";
+import "../components/login/loginPage.css"
 
 const SignUpPage = props => {
   const context = useContext(AuthContext)
@@ -47,7 +48,7 @@ const SignUpPage = props => {
             setPasswordAgain(e.target.value);
           }}></input>
         </div>
-        <button type="submit" className="btn btn-primary btn-block" onClick={register}>Register</button>
+        <button type="submit" className="btn btn-primary boot" onClick={register}>Register</button>
         <p>Already Registered?
           <Link to="/">Log In</Link></p>
       </form>
