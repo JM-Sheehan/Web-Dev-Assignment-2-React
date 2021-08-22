@@ -6,8 +6,9 @@ import MovieReviews from "../components/movieReviews";
 import useMovie from "../hooks/useMovie";
 
 const MoviePage = props => {
-  const { id } = props.match.params;
+  const { id } = props.match.params;  
   const [movie] = useMovie(id)  // NEW
+  console.log(movie);
   return (
     <>
     {movie ? (

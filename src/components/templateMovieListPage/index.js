@@ -7,7 +7,10 @@ const MovieListPageTemplate = ({movies, title, action}) => {
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
   const genre = Number(genreFilter)
-  let displayedMovies = movies
+  let displayedMovies = [];
+  console.log(movies);
+  if(true){
+    displayedMovies = movies
     .filter(m => {
       return m.title.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
     })
@@ -17,6 +20,8 @@ const MovieListPageTemplate = ({movies, title, action}) => {
         : true;
     });
 
+  }
+  
   const handleChange = (type, value) => {
     if (type === "name") setNameFilter(value);
     else setGenreFilter(value);

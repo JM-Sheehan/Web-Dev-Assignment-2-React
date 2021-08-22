@@ -1,5 +1,6 @@
 import React, { useEffect, createContext, useReducer } from "react";
-import { getPopularPeople } from "../api/tmdb-api";
+// import { getPopularPeople } from "../api/tmdb-api";
+import { getPeople } from "../api/movie-api";
 
 export const PeopleContext = createContext(null);
 
@@ -18,7 +19,7 @@ const reducer = (state, action) => {
         )
       };
     case "load":
-      return { people: action.payload.people };
+      return { people: action.payload.result };
     default:
       return state;
   }
@@ -39,8 +40,9 @@ const PeopleContextProvider = (props) => {
 
 
   useEffect(() => {
-    getPopularPeople().then((people) => {
-      dispatch({ type: "load", payload: { people } });
+    getPeople().then(result => {
+      console.log(result);
+      dispatch({ type: "load", payload: { result } });
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

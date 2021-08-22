@@ -5,10 +5,11 @@ import AddToFollows from "../components/buttons/addToFollows";
 
 const PeopleListPage = () => {
   const context = useContext(PeopleContext);
-  const people = context.people.filter((p) => {  // New
-    return !("follow" in p);
-  });
+  // const people = context.people.filter((p) => {  // New
+  //   return !("follow" in p);
+  // });
 
+  const people = context.people;
   return (
     <PageTemplate
       title="Popular People"

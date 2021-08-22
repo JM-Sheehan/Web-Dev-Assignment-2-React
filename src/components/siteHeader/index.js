@@ -36,7 +36,7 @@ const SiteHeader = (props) => {
           <NavDropdown title="Log In/Sign Up" id="nav-dropdown">
             <NavDropdown.Item eventKey="2.1">
               <Link className="nav-link text-black" to="/login">
-                Log In
+                Log In/Log Out
               </Link>
             </NavDropdown.Item>
             <NavDropdown.Item>
@@ -48,7 +48,7 @@ const SiteHeader = (props) => {
           <NavDropdown title="Movies" id="nav-dropdown">
             <NavDropdown.Item eventKey="2.1">
               <Link className="nav-link text-black" to="/movies">
-                DiscoverMovies
+                Discover Movies
               </Link>
             </NavDropdown.Item>
             <NavDropdown.Item eventKey="2.2">
@@ -60,7 +60,7 @@ const SiteHeader = (props) => {
           <NavDropdown title="People" id="nav-dropdown">
             <NavDropdown.Item eventKey="3.1">
               <Link className="nav-link text-black" to="/people/popular">
-                Popular People
+                Discover People
               </Link>
             </NavDropdown.Item>
           </NavDropdown>
