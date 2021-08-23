@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import Header from "../headerMovieList";
 import MovieList from "../movieList";
 import FilterControls from "../filterControls";
+import { getMovie } from "../../api/movie-api";
 
 const MovieListPageTemplate = ({movies, title, action}) => {
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
   const genre = Number(genreFilter)
   let displayedMovies = [];
+
   console.log(movies);
   if(true){
     displayedMovies = movies

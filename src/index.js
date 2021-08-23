@@ -26,37 +26,38 @@ const App = () => {
   console.log("Hello World")
   return (
     <BrowserRouter>
-      <AuthProvider>
-        <div className="jumbotron">
-          <SiteHeader />
-          <div className="container-fluid">
-            {/* <AuthProvider> */}
-              <MoviesContextProvider>
-                <GenresContextProvider>
-                  <PeopleContextProvider>
-                    <Switch>
-                      <Route path="/signup" component={SignUpPage} />
-                      <Route path="/login" component={LoginPage} />
-                      <Route exact path = "/" component = {HomePage}/>
-                      <PrivateRoute exact path="/reviews/form" component={AddMovieReviewPage} />
-                      <PrivateRoute path="/movies/upcoming" component={UpcomingMoviePage} />
-                      <PrivateRoute path="/movies/watch_list" component={WatchListPage} />
-                      <PrivateRoute path="/people/popular" component={PeoplePage} />
-                      <PrivateRoute path="/people/following" component={FollowPage} />
-                      <PrivateRoute path="/reviews/:id" component={MovieReviewPage} />
-                      <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
-                      <PrivateRoute path="/people/:id" component={PersonPage} />
-                      <PrivateRoute path="/movies/:id" component={MoviePage} />
-                      <PrivateRoute path="/movies" component={PopularMoviePage} />
-                      <Redirect from="*" to="/" />
-                    </Switch>
-                  </PeopleContextProvider>
-                </GenresContextProvider>
-              </MoviesContextProvider>
-            {/* </AuthProvider> */}
+      <MoviesContextProvider>
+        <AuthProvider>
+          <div className="jumbotron">
+            <SiteHeader />
+            <div className="container-fluid">
+              {/* <AuthProvider> */}
+              <GenresContextProvider>
+                <PeopleContextProvider>
+                  <Switch>
+                    <Route path="/signup" component={SignUpPage} />
+                    <Route path="/login" component={LoginPage} />
+                    <Route exact path="/" component={HomePage} />
+                    <PrivateRoute exact path="/reviews/form" component={AddMovieReviewPage} />
+                    <PrivateRoute path="/movies/upcoming" component={UpcomingMoviePage} />
+                    <PrivateRoute path="/movies/watch_list" component={WatchListPage} />
+                    <PrivateRoute path="/people/popular" component={PeoplePage} />
+                    <PrivateRoute path="/people/following" component={FollowPage} />
+                    <PrivateRoute path="/reviews/:id" component={MovieReviewPage} />
+                    <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
+                    <PrivateRoute path="/people/:id" component={PersonPage} />
+                    <PrivateRoute path="/movies/:id" component={MoviePage} />
+                    <PrivateRoute path="/movies" component={PopularMoviePage} />
+                    <Redirect from="*" to="/" />
+                  </Switch>
+                </PeopleContextProvider>
+              </GenresContextProvider>
+              {/* </AuthProvider> */}
+            </div>
           </div>
-        </div>
-      </AuthProvider>
+        </AuthProvider>
+      </MoviesContextProvider>
+
     </BrowserRouter>
   );
 };

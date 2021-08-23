@@ -3,12 +3,14 @@ import PersonCard from "../personCard";
 import { getGender } from '../../api/tmdb-api'
 import "./personDetails.css";
 
-export default ({ person, action }) => {
+export default ({ person, action,
+unfollow_action }) => {
     return (
         <>
             <PersonCard formatting = ""
-            person = {person} action = {action}/>
-
+            person = {person} action = {action}
+            unfollow_action = {unfollow_action}/>
+            
             <h4>PERSONAL INFO</h4>
             <div className="info">
                 <h5>Known For:</h5>

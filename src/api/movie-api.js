@@ -65,7 +65,7 @@ export const getMovie = (id) => {
 
 export const getReviews = (id) => {
   return fetch(
-    '/api/movies/:id/reviews', {
+    `/api/movies/${id}/reviews`, {
     headers: {
       'Authorization': window.localStorage.getItem('token')
     },
@@ -92,11 +92,10 @@ export const getPeople = () => {
 
 export const getPerson = (id) => {
   return fetch(
-    '/api/people/:id', {
+    `/api/people/${id}`, {
     headers: {
       'Authorization': window.localStorage.getItem('token')
     },
-    body: JSON.stringify({ id: id })
   }).then(res => res.json());
 };
 
@@ -133,20 +132,12 @@ export const addToFavorites = (username, id) => {
   }).then(res => res.json())
 };
 
-export const removeFromFavourites = (username, id) => {
-  return fetch('/api/users/:username/favourites', {
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    method: 'delete',
-    body: JSON.stringify({ username: username, id: id })
-  }).then(res => res.json())
-};
 
 export const getFavourites = (username) => {
   return fetch(`/api/user/${username}/favourites`, {
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': window.localStorage.getItem('token')
       },
       method: 'get',
   }).then(res => res.json())
@@ -159,31 +150,23 @@ export const getFavourites = (username) => {
 
 /////////////////////////////////////////////////////////////////////////
 export const addToWatchList = (username, id) => {
-  return fetch('/api/users/:username/watchList', {
+  return fetch(`/api/users/${username}/watchList`, {
     headers: {
-      'Authorization': window.localStorage.getItem('token')
+      'Content-Type': 'application/json'
     },
     method: 'post',
     body: JSON.stringify({ username: username, id: id })
   }).then(res => res.json())
 };
 
-export const removeFromWatchList = (username, id) => {
-  return fetch('/api/users/:username/watchList', {
-    headers: {
-      'Authorization': window.localStorage.getItem('token')
-    },
-    method: 'delete',
-    body: JSON.stringify({ username: username, id: id })
-  }).then(res => res.json())
-};
-
 export const getWatchList = (username) => {
   return fetch(
-    `/api/user/user1/watchList`, {
+    `/api/users/${username}/watchList`, {
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': window.localStorage.getItem('token')
       },
+      method: 'get',
   }).then(res => res.json());
 };
 /////////////////////////////////////////////////////////////////////////
@@ -195,9 +178,9 @@ export const getWatchList = (username) => {
 
 /////////////////////////////////////////////////////////////////////////
 export const follow = (username, id) => {
-  return fetch('/api/users/:username/following', {
+  return fetch(`/api/users/${username}/following`, {
     headers: {
-      'Authorization': window.localStorage.getItem('token')
+      'Content-Type': 'application/json'
     },
     method: 'post',
     body: JSON.stringify({ username: username, id: id })
@@ -205,9 +188,9 @@ export const follow = (username, id) => {
 };
 
 export const unfollow = (username, id) => {
-  return fetch('/api/users/:username/following', {
+  return fetch(`/api/users/${username}/following`, {
     headers: {
-      'Authorization': window.localStorage.getItem('token')
+      'Content-Type': 'application/json'
     },
     method: 'delete',
     body: JSON.stringify({ username: username, id: id })
@@ -216,18 +199,10 @@ export const unfollow = (username, id) => {
 
 export const getFollowing = (username) => {
   return fetch(
-    `/api/user/${username}/following`, {
+    `/api/users/${username}/following`, {
       headers: {
         'Content-Type': 'application/json'
       },
   }).then(res => res.json());
 };
-/////////////////////////////////////////////////////////////////////////
- 
-///////////////////////////
- ///  Single Get Queries  //
-///////////////////////////
-
-/////////////////////////////////////////////////////////////////////////
-
 /////////////////////////////////////////////////////////////////////////

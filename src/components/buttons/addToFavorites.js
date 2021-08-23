@@ -7,8 +7,7 @@ const AddToFavoriteButton = ({ movie }) => {
   const handleAddToFavorite = e => {
     e.preventDefault();
     context.favourite(movie.id);
-    console.log("Give ,me some fucking space");
-    console.log(movie.id);
+
   };
   return (
     <button

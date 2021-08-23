@@ -4,7 +4,8 @@ import "./personCard.css";
 import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const PersonCard = ({ person, action, formatting}) => {
+const PersonCard = ({ person, action,
+    unfollow_action, formatting}) => {
 
     return (
         <div className={formatting}>
@@ -26,6 +27,9 @@ const PersonCard = ({ person, action, formatting}) => {
                 </div>
                 <div className="card-footer">
                     {action(person)}
+                    <br></br>
+                    <br></br>
+                    {unfollow_action(person)}
                 </div>
             </div>
         </div>

@@ -1,22 +1,22 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../contexts/authContext";
 
-const AddToWatchListButton = ({ movie }) => {
+const RemoveFromFavouritesButton = ({ movie }) => {
     const context = useContext(AuthContext);
 
-    const handleAddToWatchList = e =>{
+    const handleRemoveFromFavourites = e => {
         e.preventDefault();
-        context.watch(movie.id);
+        context.removeFavourite(movie.id);
     }
     return (
         <button
             type="button"
             className="btn w-100 btn-primary"
-            onClick = {handleAddToWatchList}
+            onClick={handleRemoveFromFavourites}
         >
-            Add to  Watch List
+            Remove From Favourites
         </button>
     );
 };
 
-export default AddToWatchListButton;
+export default RemoveFromFavouritesButton;

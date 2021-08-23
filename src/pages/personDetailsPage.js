@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import AddToFollows from "../components/buttons/addToFollows";
 import PageTemplate from "../components/templatePersonPage"
 import usePerson from "../hooks/usePerson";
+import Unfollow from "../components/buttons/unfollow";
 
 const PersonPage = props => {
   const { id } = props.match.params;
@@ -15,6 +16,9 @@ const PersonPage = props => {
             person={person}
             action={(person) => {
               return <AddToFollows person={person} />;
+            }}
+            unfollow_action={(person) => {
+              return <Unfollow person={person} />;
             }}
           />\
         </>

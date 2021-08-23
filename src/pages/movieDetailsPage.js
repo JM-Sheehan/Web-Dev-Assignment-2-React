@@ -1,20 +1,24 @@
-import React from "react";
+import React, {useContext}from "react";
 import { Link, Route, withRouter } from "react-router-dom";
 import MovieDetails from "../components/movieDetails";
 import PageTemplate from "../components/templateMoviePage";
 import MovieReviews from "../components/movieReviews";
 import useMovie from "../hooks/useMovie";
+import { GenresContext } from "../contexts/genresContext";
 
 const MoviePage = props => {
   const { id } = props.match.params;  
   const [movie] = useMovie(id)  // NEW
+
+  const context = useContext(GenresContext);
+  const genres = context.genres; 
   console.log(movie);
   return (
     <>
     {movie ? (
       <>
         <PageTemplate movie={movie}>
-          <MovieDetails movie={movie} />
+          <MovieDetails movie={movie} genres= {genres} />
         </PageTemplate>
         <div className="row">
           <div className="col-12 ">

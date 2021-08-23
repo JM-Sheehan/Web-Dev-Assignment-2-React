@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import {PeopleContext} from "../../contexts/peopleContext";
+import {AuthContext} from "../../contexts/authContext";
 
 const AddToFollows = ({ person }) => {
-  const context = useContext(PeopleContext);
+  const context = useContext(AuthContext);
 
   const handleAddToFollows = e => {
     e.preventDefault();
-    context.addToFollows(person.id);
+    context.addFollow(person.id);
   };
 
   return (

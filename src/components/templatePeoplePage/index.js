@@ -3,7 +3,8 @@ import Header from "../headerMovieList";
 import PeopleList from "../peopleList";
 import PeopleFilters from "../peopleFilter";
 
-const PeopleListPageTemplate = ({ people, title, action }) => {
+const PeopleListPageTemplate = ({ people, title,
+    unfollow_action, action }) => {
     const [nameFilter, setNameFilter] = useState("");
 
     let displayedPeople = people
@@ -21,6 +22,7 @@ const PeopleListPageTemplate = ({ people, title, action }) => {
             <PeopleFilters onUserInput={handleChange} numMovies={displayedPeople.length} />
             <PeopleList
                 action={action}
+                unfollow_action = {unfollow_action}
                 people={displayedPeople}
             />
         </>

@@ -64,23 +64,6 @@ const SiteHeader = (props) => {
               </Link>
             </NavDropdown.Item>
           </NavDropdown>
-          <NavDropdown title="User" id="nav-dropdown">
-            <NavDropdown.Item eventKey="4.1">
-              <Link className="nav-link text-black" to="/movies/favorites">
-                Favorites
-              </Link>
-            </NavDropdown.Item>
-            <NavDropdown.Item eventKey="4.2">
-              <Link className="nav-link text-black" to="/movies/watch_list">
-                Watch List
-              </Link>
-            </NavDropdown.Item>
-            <NavDropdown.Item eventKey="4.3">
-              <Link className="nav-link text-black" to="/people/following">
-                Following
-              </Link>
-            </NavDropdown.Item>
-          </NavDropdown>
         </nav>
       </nav>
     </>

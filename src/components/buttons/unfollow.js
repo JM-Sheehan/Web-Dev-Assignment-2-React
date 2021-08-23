@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import { PeopleContext } from "../../contexts/peopleContext";
+import { AuthContext } from "../../contexts/authContext";
 
 const Unfollow = ({ person }) => {
-    const context = useContext(PeopleContext);
+    const context = useContext(AuthContext);
 
     const handleUnfollow = e => {
         e.preventDefault();
-        context.unfollow(person.id);
+        context.removeFollow(person.id);
     }
     return (
         <button
