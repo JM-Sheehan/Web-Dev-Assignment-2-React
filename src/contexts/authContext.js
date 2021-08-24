@@ -51,8 +51,8 @@ const AuthContextProvider = (props) => {
     return (result.code === 201) ? true : false;
   };
 
-  const watch = async (username, id) => {
-    const result = await addToWatchList(username, id);
+  const watch = async ( id) => {
+    const result = await addToWatchList(userName, id);
     console.log(result.code);
     return (result.code === 201) ? true : false;
   };

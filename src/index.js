@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom"    // CHANGED
-import FavoriteMoviesPage from './pages/favoriteMoviesPage'       // NEW
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import PopularMoviePage from "./pages/popularMoviesPage";
 import MoviePage from './pages/movieDetailsPage'
@@ -14,13 +13,13 @@ import PeopleContextProvider from "./contexts/peopleContext";
 import AuthProvider from "./contexts/authContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import PeoplePage from "./pages/popularPeoplePage";
+import RatedPeoplePage from "./pages/ratedPeoplePage";
 import PersonPage from "./pages/personDetailsPage";
-import WatchListPage from "./pages/watchListPage";
-import FollowPage from "./pages/following";
 import LoginPage from "./pages/loginPage";
 import SignUpPage from "./pages/signupPage";
 import PrivateRoute from "./privateRoute";
 import HomePage from "./pages/homePage";
+import RatedMovieListPage from "./pages/ratedMoviePage";
 
 const App = () => {
   console.log("Hello World")
@@ -40,11 +39,10 @@ const App = () => {
                     <Route exact path="/" component={HomePage} />
                     <PrivateRoute exact path="/reviews/form" component={AddMovieReviewPage} />
                     <PrivateRoute path="/movies/upcoming" component={UpcomingMoviePage} />
-                    <PrivateRoute path="/movies/watch_list" component={WatchListPage} />
+                    <PrivateRoute path="/movies/rated" component={RatedMovieListPage} />
                     <PrivateRoute path="/people/popular" component={PeoplePage} />
-                    <PrivateRoute path="/people/following" component={FollowPage} />
+                    <PrivateRoute path="/people/rated" component={RatedPeoplePage} />
                     <PrivateRoute path="/reviews/:id" component={MovieReviewPage} />
-                    <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
                     <PrivateRoute path="/people/:id" component={PersonPage} />
                     <PrivateRoute path="/movies/:id" component={MoviePage} />
                     <PrivateRoute path="/movies" component={PopularMoviePage} />

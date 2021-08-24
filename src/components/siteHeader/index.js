@@ -56,11 +56,21 @@ const SiteHeader = (props) => {
                 Upcoming
               </Link>
             </NavDropdown.Item>
+            <NavDropdown.Item eventKey="2.3">
+              <Link className="nav-link text-black" to="/movies/rated">
+                Rated Movies
+              </Link>
+            </NavDropdown.Item>
           </NavDropdown>
           <NavDropdown title="People" id="nav-dropdown">
             <NavDropdown.Item eventKey="3.1">
               <Link className="nav-link text-black" to="/people/popular">
                 Discover People
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item eventKey="3.2">
+              <Link className="nav-link text-black" to="/people/rated">
+                Popular People
               </Link>
             </NavDropdown.Item>
           </NavDropdown>

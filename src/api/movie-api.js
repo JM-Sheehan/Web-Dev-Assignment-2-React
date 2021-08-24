@@ -54,6 +54,17 @@ export const getUpcomingMovies = () => {
   ).then(res => res.json());
 };
 
+export const getRatedMovies = () => {
+  return fetch(
+    '/api/movies/rated', {
+    headers: {
+      'Authorization': window.localStorage.getItem('token')
+    },
+    method: 'get',
+  }
+  ).then(res => res.json());
+};
+
 export const getMovie = (id) => {
   return fetch(
     `/api/movies/${id}`, {
@@ -89,6 +100,17 @@ export const getPeople = () => {
   }
   ).then(res => res.json());
 };
+
+export const getPopularPeople = () => {
+  return fetch(
+    '/api/people/popular', {
+    headers: {
+      'Authorization': window.localStorage.getItem('token')
+    }
+  }
+  ).then(res => res.json());
+};
+
 
 export const getPerson = (id) => {
   return fetch(

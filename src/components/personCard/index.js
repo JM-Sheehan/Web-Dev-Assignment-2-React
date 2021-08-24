@@ -5,7 +5,7 @@ import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const PersonCard = ({ person, action,
-    unfollow_action, formatting}) => {
+    unfollow_action, formatting }) => {
 
     return (
         <div className={formatting}>
@@ -24,6 +24,10 @@ const PersonCard = ({ person, action,
                 <div className="card-body">
                     <FontAwesomeIcon icon={["fas", "signature"]} />
                     <h4 className="card-title ">{person.name}</h4>
+                    <p>
+                        <FontAwesomeIcon icon={["fas", "star"]} />
+                        <span> {person.popularity}</span>
+                    </p>
                 </div>
                 <div className="card-footer">
                     {action(person)}

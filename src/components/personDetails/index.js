@@ -21,6 +21,10 @@ unfollow_action }) => {
                 <p>{getGender(person.gender)}</p>
             </div>
             <div className="info">
+                <h5>Popularity:</h5>
+                <p>{person.popularity}</p>
+            </div>
+            <div className="info">
                 <h5>Birthday:</h5>
                 <p>{person.birthday}</p>
             </div>
